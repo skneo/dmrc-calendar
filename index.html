@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DMRC Calender 2023, DMRC Calender, DMRC Calender PDF, DMRC Calender 2023 PDF">
-    <link rel="stylesheet" href="output.css?v=1.1">
+    <link rel="stylesheet" href="output.css?v=1.3">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="icon" type="image/x-icon" href="/logo.png">
     <title>DMRC Calender 2023</title>
@@ -39,8 +39,18 @@
         <button onclick="changeMonth('RH')" class="py-3 hover:bg-red-700 px-5">RH</button>
         <button onclick="changeMonth('GH')" class="py-3 hover:bg-red-700 px-5">GH</button>
     </div>
-    <div class="sm:hidden fixed bottom-0">
-        <div class="bg-red-500 flex text-white overflow-auto">
+    <div class="sm:hidden fixed bottom-0 w-full">
+        <div class="mx-3 flex justify-end mb-3">
+            <p class="text-white text-sm">Share On</p>
+            <a href="whatsapp://send?text=https://dmrc-calender.matrixe.in/" data-action="share/whatsapp/share"
+                class="mx-5" target="_blank"><img src="whatsapp.svg" class="w-8 h-8" alt="whatsapp"></a>
+            <a href="https://t.me/share/url?url=https://dmrc-calender.matrixe.in/" class="float-right text-white"
+                target="_blank"><img src="telegram.svg" class="w-8 h-8" alt="telegram"></a>
+        </div>
+        <div class="flex justify-center overflow-auto">
+            <p class="text-white text-sm italic mb-2">Developer: satishkushwahdigital@gmail.com</p>
+        </div>
+        <div class="bg-red-500 flex text-white overflow-auto justify-center">
             <button onclick="changeMonth('1')" class="py-3 hover:bg-red-700 px-3">Jan</button>
             <button onclick="changeMonth('2')" class="py-3 hover:bg-red-700 px-3">Feb</button>
             <button onclick="changeMonth('3')" class="py-3 hover:bg-red-700 px-3">Mar</button>
@@ -49,7 +59,7 @@
             <button onclick="changeMonth('6')" class="py-3 hover:bg-red-700 px-3">Jun</button>
             <button onclick="changeMonth('7')" class="py-3 hover:bg-red-700 px-3">Jul</button>
         </div>
-        <div class="bg-red-500 flex text-white overflow-auto">
+        <div class="bg-red-500 flex text-white overflow-auto justify-center">
             <button onclick="changeMonth('8')" class="py-3 hover:bg-red-700 px-3">Aug</button>
             <button onclick="changeMonth('9')" class="py-3 hover:bg-red-700 px-3">Sep</button>
             <button onclick="changeMonth('10')" class="py-3 hover:bg-red-700 px-3">Oct</button>
@@ -61,13 +71,7 @@
     </div>
     <div class="md:mx-10 mx-1 flex justify-center items-center h-[60vh] sm:h-auto flex-col">
         <img src="https://dmrc-calender.netlify.app/images/1.jpg" width="1080px" id="month" alt="Calender Image">
-        <p class="text-white text-sm italic">Developer: satishkushwahdigital@gmail.com</p>
-    </div>
-    <div class="mx-10 flex justify-end mb-3 sm:hidden">
-        <a href="whatsapp://send?text=https://dmrc-calender.matrixe.in/" data-action="share/whatsapp/share" class="mx-5"
-            target="_blank"><img src="whatsapp.svg" class="w-8 h-8" alt="whatsapp"></a>
-        <a href="https://t.me/share/url?url=https://dmrc-calender.matrixe.in/" class="float-right text-white"
-            target="_blank"><img src="telegram.svg" class="w-8 h-8" alt="telegram"></a>
+        <p class="text-white text-sm italic mb-2 hidden sm:block">Developer: satishkushwahdigital@gmail.com</p>
     </div>
     <script>
         function changeMonth(monthId) {
