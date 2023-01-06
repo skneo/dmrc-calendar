@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DMRC Calender 2023, DMRC Calender, DMRC Calender PDF, DMRC Calender 2023 PDF">
-    <link rel="stylesheet" href="output.css?v=1.5">
+    <link rel="stylesheet" href="output.css?v=1.6">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="icon" type="image/x-icon" href="logo.png">
     <title>DMRC Calender 2023</title>
@@ -40,6 +40,7 @@
         <button onclick="changeMonth('GH')" class="py-3 hover:bg-red-700 px-5">GH</button>
     </div>
     <div class="md:mx-10 mx-1 flex justify-center items-center flex-col sm:mt-0 mt-10">
+        <img src="loader.gif" id="loader" class="hidden w-60 mt-10 rounded-lg" alt="loader">
         <img src="https://dmrc-calender.netlify.app/images/1.jpg" width="1080px" id="month" alt="Calender Image">
         <p class="text-white text-sm italic mb-2 hidden sm:block">Developer: satishkushwahdigital@gmail.com</p>
     </div>
@@ -90,8 +91,19 @@
             else
                 document.getElementById("next").disabled = false;
         }
+        function updateImg(newImg) {
+            document.getElementById("month").classList.add('hidden');
+            document.getElementById("loader").classList.remove('hidden');
+            var img = new Image();
+            img.src = "https://dmrc-calender.netlify.app/images/" + newImg + ".jpg";
+            img.onload = function () {
+                document.getElementById("month").src = img.src;
+                document.getElementById("loader").classList.add('hidden');
+                document.getElementById("month").classList.remove('hidden');
+            }
+        }
         function changeMonth(monthId) {
-            document.getElementById("month").src = "https://dmrc-calender.netlify.app/images/" + monthId + ".jpg";
+            updateImg(monthId);
             currMonth = monthId;
             setBtnStatus();
             if (currMonth == 'RH' || currMonth == 'GH') {
@@ -101,12 +113,12 @@
         }
         function prev() {
             currMonth = parseInt(currMonth) - 1;
-            document.getElementById("month").src = "https://dmrc-calender.netlify.app/images/" + currMonth + ".jpg";
+            updateImg(currMonth);
             setBtnStatus();
         }
         function next() {
             currMonth = parseInt(currMonth) + 1;
-            document.getElementById("month").src = "https://dmrc-calender.netlify.app/images/" + currMonth + ".jpg";
+            updateImg(currMonth);
             setBtnStatus();
         }
         const d = new Date();
