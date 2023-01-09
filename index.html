@@ -6,90 +6,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DMRC Calender 2023, DMRC Calender, DMRC Calender PDF, DMRC Calender 2023 PDF">
-    <link rel="stylesheet" href="output.css?v=1.7">
+    <link rel="stylesheet" href="output.css?v=2.0">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="icon" type="image/x-icon" href="logo.png">
     <title>DMRC Calender 2023</title>
 </head>
 
-<body class="bg-black">
+<body class="bg-black text-white">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFVR2B3MH5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-QFVR2B3MH5');
     </script>
-    <div class="bg-red-500 py-2 text-white font-semibold text-center">DMRC Calender 2023</div>
-    <div class="bg-red-500 text-white hidden sm:flex overflow-auto sticky top-0">
-        <button onclick="changeMonth('1')" class="py-3 hover:bg-red-700 px-5">Jan</button>
-        <button onclick="changeMonth('2')" class="py-3 hover:bg-red-700 px-5">Feb</button>
-        <button onclick="changeMonth('3')" class="py-3 hover:bg-red-700 px-5">Mar</button>
-        <button onclick="changeMonth('4')" class="py-3 hover:bg-red-700 px-5">Apr</button>
-        <button onclick="changeMonth('5')" class="py-3 hover:bg-red-700 px-5">May</button>
-        <button onclick="changeMonth('6')" class="py-3 hover:bg-red-700 px-5">Jun</button>
-        <button onclick="changeMonth('7')" class="py-3 hover:bg-red-700 px-5">Jul</button>
-        <button onclick="changeMonth('8')" class="py-3 hover:bg-red-700 px-5">Aug</button>
-        <button onclick="changeMonth('9')" class="py-3 hover:bg-red-700 px-5">Sep</button>
-        <button onclick="changeMonth('10')" class="py-3 hover:bg-red-700 px-5">Oct</button>
-        <button onclick="changeMonth('11')" class="py-3 hover:bg-red-700 px-5">Nov</button>
-        <button onclick="changeMonth('12')" class="py-3 hover:bg-red-700 px-5">Dec</button>
-        <button onclick="changeMonth('RH')" class="py-3 hover:bg-red-700 px-5">RH</button>
-        <button onclick="changeMonth('GH')" class="py-3 hover:bg-red-700 px-5">GH</button>
-    </div>
-    <div class="md:mx-10 mx-1 flex justify-center items-center flex-col sm:mt-0 mt-10">
-        <img src="loader.gif" id="loader" class="hidden w-60 mt-10 rounded-lg" alt="loader">
-        <img src="https://dmrc-calender.netlify.app/images/1.jpg" width="1080px" id="month" alt="Calender Image">
-        <p class="text-white text-sm italic mb-2 hidden sm:block my-3">Developer: satishkushwahdigital@gmail.com</p>
-    </div>
-    <div class="sm:hidden block w-full mt-16">
-        <div class="flex justify-between mx-5">
-            <button id='prev' onclick="prev()"
-                class="bg-red-500 px-5 py-1.5 rounded text-white active:bg-red-700 disabled:bg-red-300">&#8592;</button>
-            <button id='next' onclick="next()"
-                class="bg-red-500 px-5 py-1.5 rounded text-white active:bg-red-700 disabled:bg-red-300">&#8594;</button>
+
+    <div class="bg-red-500 py-2 font-semibold text-center md:hidden">DMRC Calender 2023</div>
+    <div class="flex flex-col-reverse md:flex-col">
+        <div class="bg-red-500">
+            <a href="index.html" class="font-semibold hover:font-bold px-3 mr-10 hidden md:inline-block">DMRC Calender
+                2023</a>
+            <button onclick="changeMonth('1')" class="px-3 py-3 hover:font-bold">Jan</button>
+            <button onclick="changeMonth('2')" class="px-3 py-3 hover:font-bold">Feb</button>
+            <button onclick="changeMonth('3')" class="px-3 py-3 hover:font-bold">Mar</button>
+            <button onclick="changeMonth('4')" class="px-3 py-3 hover:font-bold">Apr</button>
+            <button onclick="changeMonth('5')" class="px-3 py-3 hover:font-bold">May</button>
+            <button onclick="changeMonth('6')" class="px-3 py-3 hover:font-bold">Jun</button>
+            <button onclick="changeMonth('7')" class="px-3 py-3 hover:font-bold">Jul</button>
+            <button onclick="changeMonth('8')" class="px-3 py-3 hover:font-bold">Aug</button>
+            <button onclick="changeMonth('9')" class="px-3 py-3 hover:font-bold">Sep</button>
+            <button onclick="changeMonth('10')" class="px-3 py-3 hover:font-bold">Oct</button>
+            <button onclick="changeMonth('11')" class="px-3 py-3 hover:font-bold">Nov</button>
+            <button onclick="changeMonth('12')" class="px-3 py-3 hover:font-bold">Dec</button>
+            <button onclick="changeMonth('RH')" class="px-3 py-3 hover:font-bold">RH</button>
+            <button onclick="changeMonth('GH')" class="px-3 py-3 hover:font-bold">GH</button>
         </div>
-        <div class="mx-3 flex justify-end mb-3 mt-10">
-            <p class="text-white text-sm">Share On</p>
-            <a href="whatsapp://send?text=https://dmrc-calender.matrixe.in/" data-action="share/whatsapp/share"
-                class="mx-5" target="_blank"><img src="whatsapp.svg" class="w-8 h-8" alt="whatsapp"></a>
-            <a href="https://t.me/share/url?url=https://dmrc-calender.matrixe.in/" class="float-right text-white"
-                target="_blank"><img src="telegram.svg" class="w-8 h-8" alt="telegram"></a>
-        </div>
-        <div class="bg-red-500 flex text-white overflow-auto justify-center">
-            <button onclick="changeMonth('1')" class="py-3 hover:bg-red-700 px-3">Jan</button>
-            <button onclick="changeMonth('2')" class="py-3 hover:bg-red-700 px-3">Feb</button>
-            <button onclick="changeMonth('3')" class="py-3 hover:bg-red-700 px-3">Mar</button>
-            <button onclick="changeMonth('4')" class="py-3 hover:bg-red-700 px-3">Apr</button>
-            <button onclick="changeMonth('5')" class="py-3 hover:bg-red-700 px-3">May</button>
-            <button onclick="changeMonth('6')" class="py-3 hover:bg-red-700 px-3">Jun</button>
-            <button onclick="changeMonth('7')" class="py-3 hover:bg-red-700 px-3">Jul</button>
-        </div>
-        <div class="bg-red-500 flex text-white overflow-auto justify-center">
-            <button onclick="changeMonth('8')" class="py-3 hover:bg-red-700 px-3">Aug</button>
-            <button onclick="changeMonth('9')" class="py-3 hover:bg-red-700 px-3">Sep</button>
-            <button onclick="changeMonth('10')" class="py-3 hover:bg-red-700 px-3">Oct</button>
-            <button onclick="changeMonth('11')" class="py-3 hover:bg-red-700 px-3">Nov</button>
-            <button onclick="changeMonth('12')" class="py-3 hover:bg-red-700 px-3">Dec</button>
-            <button onclick="changeMonth('RH')" class="py-3 hover:bg-red-700 px-3">RH</button>
-            <button onclick="changeMonth('GH')" class="py-3 hover:bg-red-700 px-3">GH</button>
-        </div>
-        <div class="flex justify-center overflow-auto my-3">
-            <p class="text-white text-sm italic mb-2">Developer: satishkushwahdigital@gmail.com</p>
+        <div>
+            <div class="md:mx-10 mx-1 md:mt-0 mt-10 flex justify-center items-center">
+                <button id='prev' onclick="prev()"
+                    class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8592;</button>
+                <img src="loader.gif" id="loader" class="hidden w-60 mt-10 rounded-lg" alt="loader">
+                <img src="https://dmrc-calender.netlify.app/images/1.jpg" width="1080px" id="month"
+                    alt="Calender Image">
+                <button id='next' onclick="next()"
+                    class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8594;</button>
+            </div>
+            <div class="md:hidden block w-full mt-16">
+                <div class="flex justify-between mx-5">
+                    <button id='prev1' onclick="prev()"
+                        class="bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8592;</button>
+                    <button id='next1' onclick="next()"
+                        class="bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8594;</button>
+                </div>
+                <div class="mx-3 flex justify-end mb-3 mt-10">
+                    <p class="text-sm">Share On</p>
+                    <a href="whatsapp://send?text=https://dmrc-calender.matrixe.in/" data-action="share/whatsapp/share"
+                        class="mx-5" target="_blank"><img src="whatsapp.svg" class="w-8 h-8" alt="whatsapp"></a>
+                    <a href="https://t.me/share/url?url=https://dmrc-calender.matrixe.in/" class="w-8 h-8"
+                        target="_blank"><img src="telegram.svg" class="w-8 h-8" alt="telegram"></a>
+                </div>
+            </div>
         </div>
     </div>
+    <p class="py-3 text-center">Developer: satishkushwahdigital@gmail.com</p>
     <script>
         function setBtnStatus() {
             if (currMonth == '1')
-                document.getElementById("prev").disabled = true;
+                document.getElementById("prev").disabled = document.getElementById("prev1").disabled = true;
             else
-                document.getElementById("prev").disabled = false;
+                document.getElementById("prev").disabled = document.getElementById("prev1").disabled = false;
             if (currMonth == '12')
-                document.getElementById("next").disabled = true;
+                document.getElementById("next").disabled = document.getElementById("next1").disabled = true;
             else
-                document.getElementById("next").disabled = false;
+                document.getElementById("next").disabled = document.getElementById("next1").disabled = false;
         }
         function updateImg(newImg) {
             document.getElementById("month").classList.add('hidden');
@@ -107,8 +97,8 @@
             currMonth = monthId;
             setBtnStatus();
             if (currMonth == 'RH' || currMonth == 'GH') {
-                document.getElementById("prev").disabled = true;
-                document.getElementById("next").disabled = true;
+                document.getElementById("prev").disabled = document.getElementById("prev1").disabled = true;
+                document.getElementById("next").disabled = document.getElementById("next1").disabled = true;
             }
         }
         function prev() {
