@@ -27,28 +27,27 @@
         <div class="bg-red-500">
             <a href="index.html" class="font-semibold hover:font-bold px-3 mr-10 hidden md:inline-block">DMRC Calender
                 2023</a>
-            <button onclick="changeMonth('1')" class="px-3 py-3 hover:font-bold">Jan</button>
-            <button onclick="changeMonth('2')" class="px-3 py-3 hover:font-bold">Feb</button>
-            <button onclick="changeMonth('3')" class="px-3 py-3 hover:font-bold">Mar</button>
-            <button onclick="changeMonth('4')" class="px-3 py-3 hover:font-bold">Apr</button>
-            <button onclick="changeMonth('5')" class="px-3 py-3 hover:font-bold">May</button>
-            <button onclick="changeMonth('6')" class="px-3 py-3 hover:font-bold">Jun</button>
-            <button onclick="changeMonth('7')" class="px-3 py-3 hover:font-bold">Jul</button>
-            <button onclick="changeMonth('8')" class="px-3 py-3 hover:font-bold">Aug</button>
-            <button onclick="changeMonth('9')" class="px-3 py-3 hover:font-bold">Sep</button>
-            <button onclick="changeMonth('10')" class="px-3 py-3 hover:font-bold">Oct</button>
-            <button onclick="changeMonth('11')" class="px-3 py-3 hover:font-bold">Nov</button>
-            <button onclick="changeMonth('12')" class="px-3 py-3 hover:font-bold">Dec</button>
-            <button onclick="changeMonth('RH')" class="px-3 py-3 hover:font-bold">RH</button>
-            <button onclick="changeMonth('GH')" class="px-3 py-3 hover:font-bold">GH</button>
+            <button onclick="changeMonth(1)" class="px-3 py-3 hover:font-bold">Jan</button>
+            <button onclick="changeMonth(2)" class="px-3 py-3 hover:font-bold">Feb</button>
+            <button onclick="changeMonth(3)" class="px-3 py-3 hover:font-bold">Mar</button>
+            <button onclick="changeMonth(4)" class="px-3 py-3 hover:font-bold">Apr</button>
+            <button onclick="changeMonth(5)" class="px-3 py-3 hover:font-bold">May</button>
+            <button onclick="changeMonth(6)" class="px-3 py-3 hover:font-bold">Jun</button>
+            <button onclick="changeMonth(7)" class="px-3 py-3 hover:font-bold">Jul</button>
+            <button onclick="changeMonth(8)" class="px-3 py-3 hover:font-bold">Aug</button>
+            <button onclick="changeMonth(9)" class="px-3 py-3 hover:font-bold">Sep</button>
+            <button onclick="changeMonth(10)" class="px-3 py-3 hover:font-bold">Oct</button>
+            <button onclick="changeMonth(11)" class="px-3 py-3 hover:font-bold">Nov</button>
+            <button onclick="changeMonth(12)" class="px-3 py-3 hover:font-bold">Dec</button>
+            <button onclick="changeMonth(13)" class="px-3 py-3 hover:font-bold">RH</button>
+            <button onclick="changeMonth(14)" class="px-3 py-3 hover:font-bold">GH</button>
         </div>
         <div>
             <div class="md:mx-10 mx-1 md:mt-0 mt-10 flex justify-center items-center">
                 <button id='prev' onclick="prev()"
                     class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8592;</button>
                 <img src="loader.gif" id="loader" class="hidden w-60 mt-10 rounded-lg" alt="loader">
-                <img src="https://dmrc-calender.netlify.app/images/1.jpg" width="1080px" id="month"
-                    alt="Calender Image">
+                <img src="loader.gif" width="900px" id="month" alt="Calender Image">
                 <button id='next' onclick="next()"
                     class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8594;</button>
             </div>
@@ -72,20 +71,14 @@
     <p class="py-3 text-center">Developer: satishkushwahdigital@gmail.com</p>
     <script>
         function setBtnStatus() {
-            if (currMonth == '1')
-                document.getElementById("prev").disabled = document.getElementById("prev1").disabled = true;
-            else
-                document.getElementById("prev").disabled = document.getElementById("prev1").disabled = false;
-            if (currMonth == '12')
-                document.getElementById("next").disabled = document.getElementById("next1").disabled = true;
-            else
-                document.getElementById("next").disabled = document.getElementById("next1").disabled = false;
+            document.getElementById("prev").disabled = document.getElementById("prev1").disabled = (currMonth == 1);
+            document.getElementById("next").disabled = document.getElementById("next1").disabled = (currMonth == 14);
         }
         function updateImg(newImg) {
             document.getElementById("month").classList.add('hidden');
             document.getElementById("loader").classList.remove('hidden');
-            var img = new Image();
-            img.src = "https://dmrc-calender.netlify.app/images/" + newImg + ".jpg";
+            let img = new Image();
+            img.src = "https://dmrc-calender.netlify.app/images/" + newImg + ".jpg?year=2023"; //change year 
             img.onload = function () {
                 document.getElementById("month").src = img.src;
                 document.getElementById("loader").classList.add('hidden');
@@ -93,29 +86,23 @@
             }
         }
         function changeMonth(monthId) {
-            updateImg(monthId);
             currMonth = monthId;
+            updateImg(currMonth);
             setBtnStatus();
-            if (currMonth == 'RH' || currMonth == 'GH') {
-                document.getElementById("prev").disabled = document.getElementById("prev1").disabled = true;
-                document.getElementById("next").disabled = document.getElementById("next1").disabled = true;
-            }
         }
         function prev() {
-            currMonth = parseInt(currMonth) - 1;
+            currMonth = currMonth - 1;
             updateImg(currMonth);
             setBtnStatus();
         }
         function next() {
-            currMonth = parseInt(currMonth) + 1;
+            currMonth = currMonth + 1;
             updateImg(currMonth);
             setBtnStatus();
         }
-        const d = new Date();
-        let monthNum = d.getMonth() + 1;
-        let currMonth = monthNum;
-        setBtnStatus();
-        document.getElementById("month").src = "https://dmrc-calender.netlify.app/images/" + monthNum + ".jpg";
+        let d = new Date();
+        let currMonth = d.getMonth() + 1;
+        changeMonth(currMonth);
     </script>
 
 </body>
