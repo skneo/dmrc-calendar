@@ -46,7 +46,6 @@
             <div class="md:mx-10 mx-1 md:mt-0 mt-10 flex justify-center items-center">
                 <button id='prev' onclick="prev()"
                     class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8592;</button>
-                <img src="loader.gif" id="loader" class="hidden w-60 mt-10 rounded-lg" alt="loader">
                 <img src="loader.gif" width="900px" id="month" alt="Calender Image">
                 <button id='next' onclick="next()"
                     class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8594;</button>
@@ -75,14 +74,11 @@
             document.getElementById("next").disabled = document.getElementById("next1").disabled = (currMonth == 14);
         }
         function updateImg(newImg) {
-            document.getElementById("month").classList.add('hidden');
-            document.getElementById("loader").classList.remove('hidden');
+            document.getElementById("month").src = 'loader.gif';
             let img = new Image();
             img.src = "https://dmrc-calender.netlify.app/images/" + newImg + ".jpg?year=2023"; //change year 
             img.onload = function () {
                 document.getElementById("month").src = img.src;
-                document.getElementById("loader").classList.add('hidden');
-                document.getElementById("month").classList.remove('hidden');
             }
         }
         function changeMonth(monthId) {
