@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DMRC Calender 2023, DMRC Calender, DMRC Calender PDF, DMRC Calender 2023 PDF">
-    <link rel="stylesheet" href="output.css?v=2.2">
+    <link rel="stylesheet" href="output.css?v=2.3">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="icon" type="image/x-icon" href="resources/logo.png">
     <title>DMRC Calender 2023</title>
@@ -43,20 +43,18 @@
             <button onclick="changeMonth(14)" class="px-3 py-3 hover:font-bold">GH</button>
         </div>
         <div>
-            <div class="md:mx-10 mx-1 md:mt-0 mt-10 flex justify-center items-center">
-                <button id='prev' onclick="prev()"
-                    class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8592;</button>
-                <img src="resources/loader.gif" width="900px" id="month" alt="Calender Image">
-                <button id='next' onclick="next()"
-                    class="bg-red-500 px-5 py-1.5 mx-10 rounded active:bg-red-700 disabled:bg-red-300 hidden md:block">&#8594;</button>
-            </div>
-            <div class="md:hidden block w-full mt-16">
-                <div class="flex justify-between mx-5">
-                    <button id='prev1' onclick="prev()"
-                        class="bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8592;</button>
-                    <button id='next1' onclick="next()"
-                        class="bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8594;</button>
+            <div class="md:mx-10 mx-1 md:mt-0 mt-10">
+                <center>
+                    <img src="resources/loader.gif" width="900px" id="month" alt="Calender Image">
+                </center>
+                <div class="flex justify-between mt-16 mx-5">
+                    <button id='prev' onclick="prev()"
+                        class="static md:fixed top-[40vh] left-20 bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8592;</button>
+                    <button id='next' onclick="next()"
+                        class="static md:fixed top-[40vh] right-20 bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8594;</button>
                 </div>
+            </div>
+            <div class="md:hidden block w-full">
                 <div class="mx-3 flex justify-end mb-3 mt-10">
                     <p class="text-sm">Share On</p>
                     <a href="whatsapp://send?text=https://dmrc-calender.matrixe.in/" data-action="share/whatsapp/share"
@@ -137,8 +135,8 @@
     <p class="py-3 text-center">Developer: satishkushwahdigital@gmail.com</p>
     <script>
         function setBtnStatus() {
-            document.getElementById("prev").disabled = document.getElementById("prev1").disabled = (currMonth == 1);
-            document.getElementById("next").disabled = document.getElementById("next1").disabled = (currMonth == 14);
+            document.getElementById("prev").disabled = (currMonth == 1);
+            document.getElementById("next").disabled = (currMonth == 14);
         }
         function updateImg(newImg) {
             document.getElementById("month").src = 'resources/loader.gif';
