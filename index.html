@@ -5,27 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DMRC Calender 2023, DMRC Calender, DMRC Calender PDF, DMRC Calender 2023 PDF">
+    <meta name="description" content="DMRC Calendar 2023, DMRC Calendar, DMRC Calendar PDF, DMRC Calendar 2023 PDF">
     <link rel="stylesheet" href="output.css?v=2.3">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="icon" type="image/x-icon" href="resources/logo.png">
-    <title>DMRC Calender 2023</title>
+    <title>DMRC Calendar 2023</title>
 </head>
 
 <body class="bg-black text-white">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFVR2B3MH5"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFVR2B3MH5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-QFVR2B3MH5');
-    </script>
+    </script> -->
 
-    <div class="bg-red-500 py-2 font-semibold text-center md:hidden">DMRC Calender 2023</div>
+    <div class="bg-red-500 py-2 font-semibold text-center md:hidden">DMRC Calendar 2023</div>
     <div class="flex flex-col-reverse md:flex-col">
         <div class="bg-red-500">
-            <a href="index.html" class="font-semibold hover:font-bold px-3 mr-10 hidden md:inline-block">DMRC Calender
+            <a href="index.html" class="font-semibold hover:font-bold px-3 mr-10 hidden md:inline-block">DMRC Calendar
                 2023</a>
             <button onclick="changeMonth(1)" class="px-3 py-3 hover:font-bold">Jan</button>
             <button onclick="changeMonth(2)" class="px-3 py-3 hover:font-bold">Feb</button>
@@ -45,7 +45,7 @@
         <div>
             <div class="md:mx-10 mx-1 md:mt-0 mt-10">
                 <center>
-                    <img src="resources/loader.gif" width="900px" id="month" alt="Calender Image">
+                    <img src="resources/loader.gif" width="900px" id="month" alt="Calendar Image">
                 </center>
                 <div class="flex justify-between mt-16 mx-5">
                     <button id='prev' onclick="prev()"
@@ -57,17 +57,17 @@
             <div class="md:hidden block w-full">
                 <div class="mx-3 flex justify-end mb-3 mt-10">
                     <p class="text-sm">Share On</p>
-                    <a href="whatsapp://send?text=https://dmrc-calender.matrixe.in/" data-action="share/whatsapp/share"
+                    <a href="whatsapp://send?text=https://dmrc-calendar.matrixe.in/" data-action="share/whatsapp/share"
                         class="mx-5" target="_blank"><img src="resources/whatsapp.svg" class="w-8 h-8"
                             alt="whatsapp"></a>
-                    <a href="https://t.me/share/url?url=https://dmrc-calender.matrixe.in/" class="w-8 h-8"
+                    <a href="https://t.me/share/url?url=https://dmrc-calendar.matrixe.in/" class="w-8 h-8"
                         target="_blank"><img src="resources/telegram.svg" class="w-8 h-8" alt="telegram"></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="md:hidden mx-5 my-5">
-        <b class="text-lg">Steps to add Calender to home screen in chrome browser</b>
+        <b class="text-lg">Steps to add Calendar to home screen in chrome browser</b>
         <div class="my-5">
             <p>1. Click on 3 vertical dots</p>
             <img src="resources/step1.jpg" alt="step1" class="rounded-lg">
@@ -137,7 +137,7 @@
         function updateImg() {
             document.getElementById("month").src = 'resources/loader.gif';
             let img = new Image();
-            img.src = "https://dmrc-calender.netlify.app/images/" + currMonth + ".jpg?year=2023"; //change year 
+            img.src = "https://dmrc-calendar.netlify.app/images/" + currMonth + ".jpg?year=2023"; //change year 
             img.onload = function () {
                 document.getElementById("month").src = img.src;
             }
