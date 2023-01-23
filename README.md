@@ -1,2 +1,2 @@
 # dmrc-calender
-web app for dmrc calender
+web app for dmrc calendar
