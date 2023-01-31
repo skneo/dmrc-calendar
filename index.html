@@ -14,13 +14,13 @@
 
 <body class="bg-black text-white">
     <!-- Google tag (gtag.js) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-QFVR2B3MH5"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YS6BRRNQZC"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-QFVR2B3MH5');
-    </script> -->
+        gtag('config', 'G-YS6BRRNQZC');
+    </script>
 
     <div class="bg-red-500 py-2 font-semibold text-center md:hidden">DMRC Calendar 2023</div>
     <div class="flex flex-col-reverse md:flex-col">
@@ -46,8 +46,9 @@
             <div class="md:mx-10 mx-1 md:mt-0 mt-10">
                 <center>
                     <img src="resources/loader.gif" width="900px" id="month" alt="Calendar Image">
+                    <p class="mt-2" id="todayDate">Today:</p>
                 </center>
-                <div class="flex justify-between mt-16 mx-5">
+                <div class="flex justify-between mt-10 mx-5">
                     <button id='prev' onclick="prev()"
                         class="static md:fixed top-[40vh] left-20 bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8592;</button>
                     <button id='next' onclick="next()"
@@ -159,6 +160,9 @@
         let d = new Date();
         let currMonth = d.getMonth() + 1;
         updateImg(currMonth);
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        document.getElementById('todayDate').innerHTML = `Today: ${d.getDate()} ${month[d.getMonth()]}, ${weekday[d.getDay()]}`;
     </script>
 
 </body>
