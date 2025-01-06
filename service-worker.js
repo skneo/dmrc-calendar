@@ -1,7 +1,7 @@
 // service-worker.js
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open('v1').then((cache) => { //update version each year and get parameter in images
+        caches.open('v2025').then((cache) => { //update version each year and get parameter in images
             return cache.addAll([
                 '/',
                 '/index.html',
@@ -17,18 +17,20 @@ self.addEventListener('install', (event) => {
                 '/resources/whatsapp.svg',
                 '/resources/telegram.svg',
                 '/resources/loader.gif',
-                '/images/1.jpg?year=2024',
-                '/images/2.jpg?year=2024',
-                '/images/3.jpg?year=2024',
-                '/images/4.jpg?year=2024',
-                '/images/5.jpg?year=2024',
-                '/images/6.jpg?year=2024',
-                '/images/7.jpg?year=2024',
-                '/images/8.jpg?year=2024',
-                '/images/9.jpg?year=2024',
-                '/images/10.jpg?year=2024',
-                '/images/11.jpg?year=2024',
-                '/images/12.jpg?year=2024',
+                '/images/1.jpg?year=2025',
+                '/images/2.jpg?year=2025',
+                '/images/3.jpg?year=2025',
+                '/images/4.jpg?year=2025',
+                '/images/5.jpg?year=2025',
+                '/images/6.jpg?year=2025',
+                '/images/7.jpg?year=2025',
+                '/images/8.jpg?year=2025',
+                '/images/9.jpg?year=2025',
+                '/images/10.jpg?year=2025',
+                '/images/11.jpg?year=2025',
+                '/images/12.jpg?year=2025',
+                '/images/13.jpg?year=2025',
+                '/images/14.jpg?year=2025',
             ]);
         })
     );
@@ -36,7 +38,7 @@ self.addEventListener('install', (event) => {
 
 
 self.addEventListener('activate', (event) => {
-    const currentCacheVersion = 'v1';  // Update version number
+    const currentCacheVersion = 'v2025';  // Update version number
     const cacheWhitelist = [currentCacheVersion]; // List active caches
     event.waitUntil(
         caches.keys().then((cacheNames) => {
