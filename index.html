@@ -30,20 +30,20 @@
         <div class="bg-red-500">
             <a href="index.html" class="font-semibold hover:font-bold px-3 mr-10 hidden md:inline-block">DMRC Calendar
                 2025</a>
-            <button onclick="changeMonth(1)" class="px-3 py-3 hover:font-bold">Jan</button>
-            <button onclick="changeMonth(2)" class="px-3 py-3 hover:font-bold">Feb</button>
-            <button onclick="changeMonth(3)" class="px-3 py-3 hover:font-bold">Mar</button>
-            <button onclick="changeMonth(4)" class="px-3 py-3 hover:font-bold">Apr</button>
-            <button onclick="changeMonth(5)" class="px-3 py-3 hover:font-bold">May</button>
-            <button onclick="changeMonth(6)" class="px-3 py-3 hover:font-bold">Jun</button>
-            <button onclick="changeMonth(7)" class="px-3 py-3 hover:font-bold">Jul</button>
-            <button onclick="changeMonth(8)" class="px-3 py-3 hover:font-bold">Aug</button>
-            <button onclick="changeMonth(9)" class="px-3 py-3 hover:font-bold">Sep</button>
-            <button onclick="changeMonth(10)" class="px-3 py-3 hover:font-bold">Oct</button>
-            <button onclick="changeMonth(11)" class="px-3 py-3 hover:font-bold">Nov</button>
-            <button onclick="changeMonth(12)" class="px-3 py-3 hover:font-bold">Dec</button>
-            <button onclick="changeMonth(13)" class="px-3 py-3 hover:font-bold">RH</button>
-            <button onclick="changeMonth(14)" class="px-3 py-3 hover:font-bold">GH</button>
+            <button onclick="updateMonth(1)" class="px-3 py-3 hover:font-bold">Jan</button>
+            <button onclick="updateMonth(2)" class="px-3 py-3 hover:font-bold">Feb</button>
+            <button onclick="updateMonth(3)" class="px-3 py-3 hover:font-bold">Mar</button>
+            <button onclick="updateMonth(4)" class="px-3 py-3 hover:font-bold">Apr</button>
+            <button onclick="updateMonth(5)" class="px-3 py-3 hover:font-bold">May</button>
+            <button onclick="updateMonth(6)" class="px-3 py-3 hover:font-bold">Jun</button>
+            <button onclick="updateMonth(7)" class="px-3 py-3 hover:font-bold">Jul</button>
+            <button onclick="updateMonth(8)" class="px-3 py-3 hover:font-bold">Aug</button>
+            <button onclick="updateMonth(9)" class="px-3 py-3 hover:font-bold">Sep</button>
+            <button onclick="updateMonth(10)" class="px-3 py-3 hover:font-bold">Oct</button>
+            <button onclick="updateMonth(11)" class="px-3 py-3 hover:font-bold">Nov</button>
+            <button onclick="updateMonth(12)" class="px-3 py-3 hover:font-bold">Dec</button>
+            <button onclick="updateMonth(13)" class="px-3 py-3 hover:font-bold">RH</button>
+            <button onclick="updateMonth(14)" class="px-3 py-3 hover:font-bold">GH</button>
         </div>
         <div>
             <div class="md:mx-10 mx-1 md:mt-0 mt-3">
@@ -68,9 +68,9 @@
                     <p class="mt-2" id="todayDate">Today:</p>
                 </center>
                 <div class="flex justify-between mt-10 mx-5">
-                    <button id='prev' onclick="prev()"
+                    <button id='prev' onclick="updateMonth(null, -1)"
                         class="static md:fixed top-[40vh] left-20 bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8592;</button>
-                    <button id='next' onclick="next()"
+                    <button id='next' onclick="updateMonth(null, 1)"
                         class="static md:fixed top-[40vh] right-20 bg-red-500 px-5 py-1.5 rounded active:bg-red-700 disabled:bg-red-300">&#8594;</button>
                 </div>
             </div>
@@ -118,36 +118,24 @@
             class='underline text-blue-500'>MatrixeCode Innovations</a></p>
     <script src="main.js"></script>
     <script>
-        function updateImg() {
-            document.getElementById("month").src = 'resources/loader.gif';
+        function updateMonth(monthId = null, val = 0) {
+            currMonth = monthId !== null ? monthId : currMonth + val;
+            month.src = 'resources/loader.gif';
             let img = new Image();
-            img.src = "images/" + currMonth + ".jpg?year=2025"; //change year 
+            img.src = "images/" + currMonth + ".jpg?year=2025"; //update year, images to be named as 1.jpg, 2.jpg ... 12.jpg inside images folder
             img.onload = function () {
-                document.getElementById("month").src = img.src;
+                month.src = img.src;
             }
-            document.getElementById("prev").disabled = (currMonth == 1);
-            document.getElementById("next").disabled = (currMonth == 14);
-        }
-        function changeMonth(monthId) {
-            currMonth = monthId;
-            updateImg(currMonth);
-        }
-        function prev() {
-            currMonth = currMonth - 1;
-            updateImg(currMonth);
-        }
-        function next() {
-            currMonth = currMonth + 1;
-            updateImg(currMonth);
+            prev.disabled = (currMonth == 1);
+            next.disabled = (currMonth == 14);
         }
         let d = new Date();
         let currMonth = d.getMonth() + 1;
-        updateImg(currMonth);
+        updateMonth(currMonth);
         const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        document.getElementById('todayDate').innerHTML = `Today: ${d.getDate()} ${month[d.getMonth()]}, ${weekday[d.getDay()]}`;
+        todayDate.innerHTML = `Today: ${d.getDate()} ${month[d.getMonth()]}, ${weekday[d.getDay()]}`;
     </script>
-
 </body>
 
 </html>
