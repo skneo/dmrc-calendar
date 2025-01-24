@@ -59,8 +59,11 @@
                                 document.getElementById("month").style.width = "200%";
                                 zoomed = true;
                             } else {
-                                document.getElementById("month").style.maxWidth = "100%";
-                                document.getElementById("month").style.width = "100%";
+                                if (window.innerWidth > 768) {
+                                    document.getElementById("month").style.width = "900px";
+                                } else {
+                                    document.getElementById("month").style.width = "100%";
+                                }
                                 zoomed = false;
                             }
                         }
