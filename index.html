@@ -54,17 +54,15 @@
                     <script>
                         let zoomed = false;
                         function zoomImage() {
-                            if (!zoomed) {
-                                document.getElementById("month").style.maxWidth = "none";
-                                document.getElementById("month").style.width = "200%";
-                                zoomed = true;
-                            } else {
-                                if (window.innerWidth > 768) {
-                                    document.getElementById("month").style.width = "900px";
+                            if (window.innerWidth <= 768) {
+                                if (!zoomed) {
+                                    document.getElementById("month").style.maxWidth = "none";
+                                    document.getElementById("month").style.width = "200%";
+                                    zoomed = true;
                                 } else {
                                     document.getElementById("month").style.width = "100%";
+                                    zoomed = false;
                                 }
-                                zoomed = false;
                             }
                         }
                     </script>
